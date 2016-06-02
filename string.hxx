@@ -96,6 +96,8 @@ namespace ct
     };
     template <typename String, unsigned Times>
     using strmul_t = typename strmul<String, Times>::type;
+    template <typename String, typename Times>
+    constexpr auto operator * (String const &, Times const &) -> strmul_t<String, Times::value> { return {}; };
 }
 
 #endif // STRING_HXX
